@@ -3,7 +3,7 @@ import * as tf from "@tensorflow/tfjs";
 addEventListener("message", async ({ data }) => {
   try {
     const input = tf.tensor(JSON.parse(data));
-    const proxyUrl = '/api/proxy?url=' + encodeURIComponent(process.env.NEXT_PUBLIC_MODEL_URL);
+    const proxyUrl = 'https://greenfy-alpha.vercel.app/api/proxy?url=' + encodeURIComponent(process.env.NEXT_PUBLIC_MODEL_URL);
     const response = await fetch(proxyUrl);
     const modelData = await response.json();
 
