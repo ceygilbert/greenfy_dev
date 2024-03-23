@@ -1,4 +1,5 @@
 // pages/api/proxy.js
+import fetch from 'node-fetch';
 
 export default async (req, res) {
   const { url } = req.query;
