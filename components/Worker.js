@@ -4,9 +4,12 @@ import * as tf from "@tensorflow/tfjs";
 
 addEventListener("message", async ({ data }) => {
   let Model;
-  console.log("Received data:", data);
-  const input = tf.tensor(JSON.parse(data));
-  console.log("Input tensor shape:", input.shape);
+  //const input = tf.tensor(JSON.parse(data));
+  
+  const parsedData = JSON.parse(data);
+
+  // Convert the parsed data into a TensorFlow tensor
+  const input = tf.tensor(parsedData);
 
   function indexOfMax(arr) {
     if (arr.length === 0) {
