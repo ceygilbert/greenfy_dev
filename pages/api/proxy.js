@@ -10,8 +10,8 @@ export default async function handler(req, res) {
     const data = await response.json();
 
     // Set CORS headers to allow requests from all origins
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Origin', 'https://oppstech.cloud');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, FETCH, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
     // Send the data fetched from the external URL as the response
