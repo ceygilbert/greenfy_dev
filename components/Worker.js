@@ -7,13 +7,15 @@ addEventListener("message", async ({ data }) => {
     const response = await fetch(proxyUrl);
     const modelData = await response.json();
 
-    //const Model = await tf.loadGraphModel(modelData);
-    const Model = await tf.loadGraphModel(tf.io.browserFiles([{
-    name: 'model.json',
-    data: new Blob([JSON.stringify(modelData)], {type: 'application/json'})
-  }]));
+    const blob = new Blob([JSON.stringify(modelData)], { type: 'application/json' });
+
+    const url = URL.createObjectURL(blob);
+    const Model = await tf.loadGraphModel(url);
+
     const result = await Model.predict(tf.expandDims(input, 0));
     const index = await result.data();
+
+    URL.revokeObjectURL(url);
 
     const final = {
       number: indexOfMax(index) + 1,
