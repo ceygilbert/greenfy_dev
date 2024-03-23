@@ -12,6 +12,7 @@ addEventListener("message", async ({ data }) => {
     console.log('3:', modelData);
 
     const Model = await tf.loadGraphModel(modelData);
+    console.log('4:', Model);
     const result = await Model.predict(tf.expandDims(input, 0));
     const index = await result.data();
 
