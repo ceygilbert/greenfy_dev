@@ -5,7 +5,7 @@ addEventListener("message", async ({ data }) => {
     const input = tf.tensor(JSON.parse(data));
     const proxyUrl = 'https://greenfy-alpha.vercel.app/api/proxy?url=' + encodeURIComponent(process.env.NEXT_PUBLIC_MODEL_URL);
     const temp = await tf.loadGraphModel(process.env.NEXT_PUBLIC_MODEL_URL);
-    console.log('1':, temp);
+    console.log('1:', temp);
     const response = await fetch(proxyUrl);
     console.log('2:', response);
     const modelData = await response.json();
