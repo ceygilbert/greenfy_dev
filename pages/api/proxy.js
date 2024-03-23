@@ -1,8 +1,6 @@
 // pages/api/proxy.js
 
-import fetch from 'node-fetch';
-
-export default async function handler(req, res) {
+export default async (req, res) {
   const { url } = req.query;
 
   try {
@@ -15,7 +13,7 @@ export default async function handler(req, res) {
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
     // Send the data fetched from the external URL as the response
-    res.status(200).json(data);
+    res.json(data);
   } catch (error) {
     console.error('Error fetching data:', error);
     res.status(500).json({ error: 'Internal Server Error' });
