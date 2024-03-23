@@ -1,4 +1,4 @@
-import * as tf from "@tensorflow/tfjs";
+/*import * as tf from "@tensorflow/tfjs";
 
 addEventListener("message", async ({ data }) => {
   try {
@@ -40,10 +40,10 @@ function indexOfMax(arr) {
 
     return maxIndex;
 }
+*/
 
 
-
-/*import * as tf from "@tensorflow/tfjs";
+import * as tf from "@tensorflow/tfjs";
 
 addEventListener("message", async ({ data }) => {
   let Model;
@@ -69,8 +69,11 @@ addEventListener("message", async ({ data }) => {
 
   if (!Model) {
     console.log(tf);
+    const proxyUrl = 'https://greenfy-alpha.vercel.app/api/proxy?url=' + encodeURIComponent(process.env.NEXT_PUBLIC_MODEL_URL);
+    const response = await fetch(proxyUrl);
+    const modelData = await response.json();
     // Make sure to update the NEXT_PUBLIC_MODEL_URL environment variable on Vercel (or .env file) to point to the model.json file
-    Model = await tf.loadGraphModel(process.env.NEXT_PUBLIC_MODEL_URL);
+    Model = await tf.loadGraphModel(modelData);
   }
   const result = await Model.predict(tf.expandDims(input, 0));
   const index = await result.data();
@@ -81,4 +84,4 @@ addEventListener("message", async ({ data }) => {
   };
 
   postMessage(final);
-});*/
+});
