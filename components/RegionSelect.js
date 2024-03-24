@@ -74,7 +74,11 @@ const RegionSelect = (props) => {
 
     if (option === null) {
         // Wait until geolocation returns the option
-        return <div>Loading...</div>;
+        return (
+            <div className={styles.loadingOverlay}>
+                <div className={styles.loading}>Loading...</div>
+            </div>
+        );
     }
 
     return (
@@ -104,7 +108,7 @@ const RegionSelect = (props) => {
                     </div>
                 </div>
             </div>
-            <button onClick={handleContinue}>Continue</button>
+            <div className={option === 0 ? styles.disabled : styles.button} onClick={() => handleContinue()}>Continue</div>
         </div>
     );
 };
