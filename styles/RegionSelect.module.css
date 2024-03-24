@@ -99,7 +99,7 @@
     z-index: 9999; /* Ensure it's on top of other content */
 }
 
-.loading {
+.loadingGif  {
     width: 100px; /* Adjust size as needed */
     height: 100px; /* Adjust size as needed */
 }
