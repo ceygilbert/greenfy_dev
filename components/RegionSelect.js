@@ -14,6 +14,7 @@ const RegionSelect = (props) => {
                     // Extract region based on user's position
                     const userRegion = getUserRegion(position.coords.latitude, position.coords.longitude);
                     setOption(userRegion);
+		     console.log('Options:', option)
                 },
                 (error) => {
                     setError(error.message); // Handle error if geolocation fails
@@ -32,14 +33,17 @@ const RegionSelect = (props) => {
 
         // Example: If within Malaysia's coordinates, return 1 (Malaysia)
         if (latitude >= 1.2 && latitude <= 6.5 && longitude >= 99.6 && longitude <= 104.4) {
+	    console.log("lat: MY");
             return 1;
         } 
         // Example: If within Singapore's coordinates, return 2 (Singapore)
         else if (latitude >= 1.2 && latitude <= 1.5 && longitude >= 103.5 && longitude <= 104.1) {
+            console.log('lat: SG');
             return 2;
         } 
         // Default: Return 3 (Other regions)
         else {
+		console.log('lat: others');
             return 3;
         }
     };
