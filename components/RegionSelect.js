@@ -6,17 +6,22 @@ const RegionSelect = (props) => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        // Get user's current position when component mounts
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                // Extract region based on user's position
-                const userRegion = getUserRegion(position.coords.latitude, position.coords.longitude);
-                setOption(userRegion);
-            },
-            (error) => {
-                setError(error.message); // Handle error if geolocation fails
-            }
-        );
+        // Check if geolocation is supported
+        if ("geolocation" in navigator) {
+            // Get user's current position
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    // Extract region based on user's position
+                    const userRegion = getUserRegion(position.coords.latitude, position.coords.longitude);
+                    setOption(userRegion);
+                },
+                (error) => {
+                    setError(error.message); // Handle error if geolocation fails
+                }
+            );
+        } else {
+            setError("Geolocation is not supported."); // Handle error if geolocation is not supported
+        }
     }, []);
 
     // Function to determine user's region based on coordinates
@@ -41,6 +46,27 @@ const RegionSelect = (props) => {
 
     const handleContinue = () => {
         props.handleRegion(option);
+    };
+
+    const requestLocationPermission = () => {
+        // Request permission for geolocation
+        navigator.permissions.query({ name: 'geolocation' }).then(permissionStatus => {
+            if (permissionStatus.state === 'prompt') {
+                permissionStatus.onchange = () => {
+                    // If permission is granted or denied, refresh the component
+                    window.location.reload();
+                };
+                permissionStatus
+                    .request()
+                    .then(permissionResult => {
+                        if (permissionResult.state === 'granted') {
+                            // Permission granted, reload the component to get user's location
+                            window.location.reload();
+                        }
+                    })
+                    .catch(console.error);
+            }
+        });
     };
 
     if (error) {
@@ -75,11 +101,13 @@ const RegionSelect = (props) => {
                 </div>
             </div>
             <div className={option === null ? styles.disabled : styles.button} onClick={handleContinue}>Continue</div>
+            {option === null && <div className={styles.permission} onClick={requestLocationPermission}>Allow location access</div>}
         </div>
     );
 };
 
 export default RegionSelect;
+
 
 
 /*import React, { useEffect, useState } from "react";
