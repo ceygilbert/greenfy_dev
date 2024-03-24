@@ -100,6 +100,6 @@
 }
 
 .loading {
-    color: white; /* Text color */
-    font-size: 24px;
+    width: 100px; /* Adjust size as needed */
+    height: 100px; /* Adjust size as needed */
 }
