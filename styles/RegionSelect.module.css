@@ -99,13 +99,28 @@
     z-index: 9999; /* Ensure it's on top of other content */
 }
 
-@keyframes moveLoading {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+.loading {
+    color: white;
+    font-size: 24px;
+    animation: pulse 1s infinite alternate;
 }
 
-.loading {
-    color: white; /* Text color */
-    font-size: 24px;
-    animation: moveLoading 2s linear infinite;
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
 }
+
+.error {
+    text-align: center;
+    color: red;
+}
+
+.permissionDenied {
+    text-align: center;
+    color: red;
+}
+
