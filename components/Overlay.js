@@ -103,11 +103,11 @@ const Overlay = (props) => {
 					<div className={styles.button} onClick={() => newNumber(7)}>7</div>
 				</div>
 				<span className={styles.other} onClick={() => handleNone()}>None of these</span>
-				<DropdownList
+				<span><DropdownList
 					options={options}
 					selectedOption={selectedOption}
 					handleChange={handleChange}
-				/>
+				/></span>
 			</div>
 		}
 		{feedback && !wrong && !noPlastic && props.recyclable && props.ready && 
