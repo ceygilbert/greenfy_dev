@@ -30,7 +30,7 @@ addEventListener("message", async ({ data }) => {
   }
 
   if (!Model) {
-    console.log(tf);
+    //console.log(tf);
     //const proxyUrl = '/api/proxy?url=' + encodeURIComponent(process.env.NEXT_PUBLIC_MODEL_URL);
     // Make sure to update the NEXT_PUBLIC_MODEL_URL environment variable on Vercel (or .env file) to point to the model.json file
     Model = await tf.loadGraphModel(process.env.NEXT_PUBLIC_MODEL_URL);
