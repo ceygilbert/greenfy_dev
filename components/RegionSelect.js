@@ -76,7 +76,7 @@ const RegionSelect = (props) => {
         // Wait until geolocation returns the option
         return (
             <div className={styles.loadingOverlay}>
-                <div className={styles.loading}>Loading...</div>
+                <img src="loading.gif" alt="Loading..." className={styles.loadingGif} />
             </div>
         );
     }
