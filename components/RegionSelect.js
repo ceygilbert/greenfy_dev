@@ -82,14 +82,35 @@ const RegionSelect = (props) => {
             <div className={styles.title}>Select your region</div>
             <div className={styles.subtitle}>We’ll give you recycling advice tailored to your location.</div>
             <div className={styles.options}>
-                {/* Render options based on user's location */}
+                <div className={option === 1 ? styles.optioncheck : styles.option} onClick={() => setOption(1)}>
+                    <div className={styles.info}>
+                        <img src={option === 1 ? "checked.svg" : "unchecked.svg"} alt="checked"/>
+                        <div className={styles.name}>🇲🇾 Malaysia</div>
+                        <div className={styles.desc}>Specific plastic recycling advice for Malaysia</div>
+                    </div>
+                </div>
+                <div className={option === 2 ? styles.optioncheck : styles.option} onClick={() => setOption(2)}>
+                    <div className={styles.info}>
+                        <img src={option === 2 ? "checked.svg" : "unchecked.svg"} alt="checked"/>
+                        <div className={styles.name}>🇸🇬 Singapore</div>
+                        <div className={styles.desc}>Specific plastic recycling advice for Singapore</div>
+                    </div>
+                </div>
+                <div className={option === 3 ? styles.optioncheck : styles.option} onClick={() => setOption(3)}>
+                    <div className={styles.info}>
+                        <img src={option === 3 ? "checked.svg" : "unchecked.svg"} alt="checked"/>
+                        <div className={styles.name}>Other</div>
+                        <div className={styles.desc}>General advice for other regions</div>
+                    </div>
+                </div>
             </div>
-            {/* Render button to continue and handleContinue function */}
+            <button onClick={handleContinue}>Continue</button>
         </div>
     );
 };
 
 export default RegionSelect;
+
 
 
 
