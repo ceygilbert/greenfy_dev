@@ -99,7 +99,13 @@
     z-index: 9999; /* Ensure it's on top of other content */
 }
 
-.loadingGif  {
-    width: 100px; /* Adjust size as needed */
-    height: 100px; /* Adjust size as needed */
+@keyframes moveLoading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.loading {
+    color: white; /* Text color */
+    font-size: 24px;
+    animation: moveLoading 2s linear infinite;
 }
