@@ -9,9 +9,9 @@ const Dashboard = (props) => {
     if (navigator.share) {
       navigator
         .share({
-          url: "https://ecosnap.vercel.app",
-          text: "Learn how to recycle plastic with Ecosnap",
-          title: "Ecosnap",
+          url: "https://greenfy-alpha.vercel.app",
+          text: "Learn how to recycle unused items with Greenfy",
+          title: "Greenfy",
         })
         .then(function () {
           console.log("Successful share");
@@ -92,20 +92,20 @@ const Dashboard = (props) => {
           <img src="decoration.svg" />
           <div className={styles.pretitle}>You recycled</div>
           <div className={styles.title}>
-            {props.num} plastic item{props.num > 1 && "s"}
+            {props.num} item{props.num > 1 && "s"}
           </div>
         </div>
       ) : (
         <div className={styles.callout} onClick={() => props.setView(true)}>
           <img src="decoration.svg" />
           <div className={styles.pretitle}>Start recycling</div>
-          <div className={styles.title}>Scan a plastic item</div>
+          <div className={styles.title}>Scan a your item</div>
         </div>
       )}
       <HowTo support={support} />
       <div className={styles.button} onClick={() => props.setView(true)}>
         <img src="scanmore.svg" />
-        Scan a plastic item
+        Scan a your item
       </div>
     </div>
   );
