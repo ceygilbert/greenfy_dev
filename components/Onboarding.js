@@ -59,8 +59,8 @@ const Onboarding = (props) => {
           <div>
             <div className={styles.text}>Snap a picture to identify recycleable items</div>
             <div className={styles.subtitle}>
-              Look for identifying marks such as the tiny triangle with a number inside it (ranging from 1 to 7) on plastics. 
-              Keep it centered in the camera for best results. This process works for other recyclable materials too.
+              Look for identifying marks such as the tiny triangle with a number inside it on plastics. 
+              Keep it centered in the camera for best results. This process works for other materials too.
             </div>
           </div>
         )}
@@ -76,7 +76,7 @@ const Onboarding = (props) => {
         {step === 3 && (
           <div>
             <div className={styles.text}>
-              Learn how to recycle your plastic item
+              Learn how to recycle your unused item
             </div>
             <div className={styles.subtitle}>
               You’ll learn if the item is recyclable or not, and how you should
