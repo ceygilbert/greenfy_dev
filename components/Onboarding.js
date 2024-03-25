@@ -57,10 +57,10 @@ const Onboarding = (props) => {
         </div>
         {step === 1 && (
           <div>
-            <div className={styles.text}>Snap a picture of a plastic code</div>
+            <div className={styles.text}>Snap a picture to identify recycleable items</div>
             <div className={styles.subtitle}>
-              Look for a tiny triangle with a number inside it from 1 to 7. Keep
-              it in the center of the camera for best results.
+              Look for identifying marks such as the tiny triangle with a number inside it (ranging from 1 to 7) on plastics. 
+              Keep it centered in the camera for best results. This process works for other recyclable materials too.
             </div>
           </div>
         )}
